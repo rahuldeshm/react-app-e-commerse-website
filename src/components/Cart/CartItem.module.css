@@ -1,0 +1,26 @@
+.tablerow {
+  justify-content: space-around;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+.tablerow img {
+  position: relative;
+  border-radius: 1rem;
+  height: 4rem;
+}
+.tablerow input {
+  width: 2rem;
+  height: 1.3rem;
+}
+.tablerow button {
+  margin-left: 2px;
+  transition: 0.4s;
+  color: white;
+  border: 5px solid rgb(138, 24, 16);
+  background-color: rgb(138, 24, 16);
+}
+.tablerow button:hover {
+  box-shadow: 0 0 5px white;
+}
+.tablerow button:active {
+  box-shadow: 0 0 5px white;
+}
