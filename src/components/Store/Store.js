@@ -1,12 +1,14 @@
-import React, { useState } from "react";
+import React, { useContext } from "react";
 
 import Item from "./Item";
 import Footer from "./../Layout/Footer";
 import { Container, Row, Button } from "react-bootstrap";
 import Cart from "../Cart/Cart";
+import DataContext from "../../store/data-context";
 
 function Store(props) {
-  const [showCart, setShowCart] = useState(true);
+  const ctx = useContext(DataContext);
+
   const list = [
     {
       title: "Colors",
@@ -33,16 +35,24 @@ function Store(props) {
         "https://prasadyash2411.github.io/ecom-website/img/Album%204.png",
     },
   ];
-
-  function closeHandler() {
-    setShowCart(false);
-  }
   function openCartHandler() {
-    setShowCart(true);
+    ctx.cartHandler(true);
   }
   return (
     <div>
-      <Container fluid style={{ backgroundColor: "#ccc", textAlign: "center" }}>
+      <Container
+        fluid
+        style={{
+          backgroundColor: "#ccc",
+          textAlign: "center",
+        }}
+      >
+        <Row
+          style={{
+            backgroundColor: "chocolate",
+            height: "4rem",
+          }}
+        ></Row>
         <Row style={{ backgroundColor: "chocolate" }}>
           <h1>Generics</h1>
         </Row>
@@ -59,7 +69,7 @@ function Store(props) {
         </Row>
         <Button onClick={openCartHandler}>Cart</Button>
       </Container>
-      <Cart closeHandler={closeHandler} showCart={showCart}></Cart>
+      <Cart></Cart>
       <Footer></Footer>
     </div>
   );

@@ -4,11 +4,17 @@ import { FormControl, Image, Button, Col, Row } from "react-bootstrap";
 function CartItem(props) {
   return (
     <tr>
-      <td>
-        <td>
-          <Image style={{ height: "3rem" }} src={props.e.imageUrl} alt="item" />
-        </td>
-        <td>{props.e.title}</td>
+      <td style={{ display: "flex" }} className="m-0 p-0">
+        <Col className="m-0 p-0 ">
+          <Image
+            rounded
+            className="m-0 p-0 "
+            style={{ height: "3rem", width: "3rem" }}
+            src={props.e.imageUrl}
+            alt="item"
+          />
+        </Col>
+        <Col className="m-0 p-0 ">{props.e.title}</Col>
       </td>
       <td>{props.e.price}</td>
       <td>

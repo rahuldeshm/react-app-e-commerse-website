@@ -1,39 +1,19 @@
-import React from "react";
+import React, { useContext } from "react";
 import CartItem from "./CartItem";
 import { Button, Table, Modal, Container, Row, Col } from "react-bootstrap";
+import DataContext from "../../store/data-context";
 
 function Cart(props) {
-  const clist = [
-    {
-      title: "Colors",
-      price: 100,
-      imageUrl:
-        "https://prasadyash2411.github.io/ecom-website/img/Album%201.png",
-    },
-    {
-      title: "Black and white Colors",
-      price: 50,
-      imageUrl:
-        "https://prasadyash2411.github.io/ecom-website/img/Album%202.png",
-    },
-    {
-      title: "Yellow and Black Colors",
-      price: 70,
-      imageUrl:
-        "https://prasadyash2411.github.io/ecom-website/img/Album%203.png",
-    },
-    {
-      title: "Blue Color",
-      price: 100,
-      imageUrl:
-        "https://prasadyash2411.github.io/ecom-website/img/Album%204.png",
-    },
-  ];
+  const ctx = useContext(DataContext);
+
+  function closeHandler() {
+    ctx.cartHandler(false);
+  }
   return (
     <>
       <Modal
-        show={props.showCart}
-        onHide={props.closeHandler}
+        show={ctx.showCart}
+        onHide={closeHandler}
         left="0px"
         style={{ textAlign: "center" }}
       >
@@ -53,7 +33,7 @@ function Cart(props) {
                 </tr>
               </thead>
               <tbody>
-                {clist.map((e) => {
+                {ctx.cartItems.map((e) => {
                   return <CartItem key={`${e.title}_cart`} e={e}></CartItem>;
                 })}
               </tbody>
@@ -70,7 +50,7 @@ function Cart(props) {
         </Modal.Body>
         <Modal.Footer style={{ textAlign: "center" }}>
           <Col>
-            <Button onClick={props.closeHandler}>Purchase</Button>
+            <Button onClick={closeHandler}>Purchase</Button>
           </Col>
         </Modal.Footer>
       </Modal>
