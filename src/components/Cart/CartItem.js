@@ -1,19 +1,37 @@
 import React from "react";
-import classes from "./CartItem.module.css";
+import { FormControl, Image, Button, Col, Row } from "react-bootstrap";
 
 function CartItem(props) {
   return (
-    <tr className={classes.tablerow}>
-      <td className={classes.item}>
+    <tr>
+      <td>
         <td>
-          <img src={props.e.imageUrl} alt="item" />
+          <Image style={{ height: "3rem" }} src={props.e.imageUrl} alt="item" />
         </td>
         <td>{props.e.title}</td>
       </td>
       <td>{props.e.price}</td>
       <td>
-        <input type="number" />
-        <button>Remove</button>
+        <Row>
+          <Col className="p-0">
+            <FormControl
+              defaultValue={1}
+              className="p-0"
+              style={{ width: "2rem" }}
+              type="number"
+            />
+          </Col>
+          <Col className="p-0">
+            <Button
+              variant="warning"
+              size="sm"
+              className="p-0"
+              style={{ width: "4rem" }}
+            >
+              Remove
+            </Button>
+          </Col>
+        </Row>
       </td>
     </tr>
   );
