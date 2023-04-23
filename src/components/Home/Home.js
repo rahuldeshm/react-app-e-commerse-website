@@ -9,6 +9,12 @@ function Home() {
     <>
       <Container fluid style={{ backgroundColor: "#ccc", textAlign: "center" }}>
         <Col style={{ backgroundColor: "chocolate" }}>
+          <Row
+            style={{
+              backgroundColor: "chocolate",
+              height: "4rem",
+            }}
+          ></Row>
           <Row>
             <h2>Play Sound</h2>
           </Row>

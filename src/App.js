@@ -1,19 +1,32 @@
-import "./App.css";
-// import About from "./components/About/About";
-// import Home from "./components/Home/Home";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import About from "./components/About/About";
+import Home from "./components/Home/Home";
 import Store from "./components/Store/Store";
-import Header from "./components/Layout/Header";
-import { ContextProvider } from "./store/data-context";
-// import Cart from "./components/Cart/Cart";
+import RootLayout from "./components/Root";
+
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <RootLayout />,
+    children: [
+      {
+        path: "/",
+        element: <Home />,
+      },
+      {
+        path: "/store",
+        element: <Store />,
+      },
+      {
+        path: "/about",
+        element: <About />,
+      },
+    ],
+  },
+]);
+
 function App() {
-  return (
-    <ContextProvider>
-      <Header></Header>
-      {/* <Home></Home>
-      <About></About> */}
-      <Store></Store>
-    </ContextProvider>
-  );
+  return <RouterProvider router={router}></RouterProvider>;
 }
 
 export default App;

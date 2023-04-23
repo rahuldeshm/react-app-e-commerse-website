@@ -1,11 +1,16 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { Navbar, Container, Button } from "react-bootstrap";
 import DataContext from "../../store/data-context";
+import { NavLink } from "react-router-dom";
 
 function Header(props) {
+  const [store, setStore] = useState(false);
   const ctx = useContext(DataContext);
   function openCartHandler() {
     ctx.cartHandler(true);
+  }
+  function storeHandler() {
+    setStore(true);
   }
   return (
     <Navbar
@@ -17,18 +22,20 @@ function Header(props) {
       <Container>
         <Navbar.Brand>e-commerse website</Navbar.Brand>
       </Container>
-      <Button variant="warning" className="m-3">
+      <NavLink to="/" className="m-3">
         Home
-      </Button>
-      <Button variant="warning" className="m-3">
+      </NavLink>
+      <NavLink to="/store" onClick={storeHandler} className="m-3">
         Store
-      </Button>
-      <Button variant="warning" className="m-3">
+      </NavLink>
+      <NavLink to="/about" className="m-3">
         About
-      </Button>
-      <Button variant="primary" className="m-3" onClick={openCartHandler}>
-        Cart<h2>{ctx.cartItems.length}</h2>
-      </Button>
+      </NavLink>
+      {store && (
+        <Button variant="primary" className="m-3" onClick={openCartHandler}>
+          Cart<h2>{ctx.cartItems.length}</h2>
+        </Button>
+      )}
     </Navbar>
   );
 }
