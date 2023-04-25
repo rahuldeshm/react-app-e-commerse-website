@@ -12,6 +12,9 @@ function Header(props) {
   function storeHandler() {
     setStore(true);
   }
+  function cartHandler() {
+    setStore(false);
+  }
   return (
     <Navbar
       bg="dark"
@@ -22,14 +25,17 @@ function Header(props) {
       <Container>
         <Navbar.Brand>e-commerse website</Navbar.Brand>
       </Container>
-      <NavLink to="/" className="m-3">
+      <NavLink onClick={cartHandler} to="/" className="m-3">
         Home
       </NavLink>
       <NavLink to="/store" onClick={storeHandler} className="m-3">
         Store
       </NavLink>
-      <NavLink to="/about" className="m-3">
+      <NavLink onClick={cartHandler} to="/about" className="m-3">
         About
+      </NavLink>
+      <NavLink onClick={cartHandler} to="/contact" className="m-3">
+        Contact Us
       </NavLink>
       {store && (
         <Button variant="primary" className="m-3" onClick={openCartHandler}>

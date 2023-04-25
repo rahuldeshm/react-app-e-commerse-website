@@ -7,6 +7,7 @@ function About() {
   return (
     <div>
       <Container fluid style={{ backgroundColor: "#ccc", textAlign: "center" }}>
+        <Row style={{ backgroundColor: "chocolate", height: "4rem" }}></Row>
         <Row style={{ backgroundColor: "chocolate" }}>
           <h1>Generics</h1>
         </Row>
