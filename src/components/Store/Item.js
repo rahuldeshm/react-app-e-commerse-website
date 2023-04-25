@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import { Col, Row, Button } from "react-bootstrap";
 import DataContext from "../../store/data-context";
+import { NavLink } from "react-router-dom";
 
 function Item(props) {
   const ctx = useContext(DataContext);
@@ -12,7 +13,9 @@ function Item(props) {
   return (
     <Col sm={6}>
       <h3>{titl}</h3>
-      <img src={props.e.imageUrl} alt="Product" />
+      <NavLink to={`/store/${titl}`}>
+        <img src={props.e.imageUrl} alt="Product" />
+      </NavLink>
       <Row className="m-3">
         <Col>
           <h3>{`$${props.e.price}`}</h3>

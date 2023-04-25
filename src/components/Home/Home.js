@@ -3,6 +3,7 @@ import play from "./../../images/playlogo.png";
 import Tours from "./Tours";
 import Footer from "./../Layout/Footer";
 import { Col, Container, Row, Image } from "react-bootstrap";
+import { Route } from "react-router-dom/cjs/react-router-dom.min";
 
 function Home() {
   return (
@@ -15,6 +16,11 @@ function Home() {
               height: "4rem",
             }}
           ></Row>
+          <Route path="/home/new-user">
+            <Row style={{ backgroundColor: "yellowgreen" }}>
+              <h3>Welcome, New User!</h3>
+            </Row>
+          </Route>
           <Row>
             <h2>Play Sound</h2>
           </Row>

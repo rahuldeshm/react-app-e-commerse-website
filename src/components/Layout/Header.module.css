@@ -1,0 +1,17 @@
+.navbar a {
+  width: fit-content;
+  height: 2rem;
+  padding: 5px;
+  background-color: rgb(54, 53, 44);
+  display: flex;
+}
+.navbar a:active,
+.navbar a:focus,
+.navbar a.active {
+  background-color: gold;
+  color: black;
+}
+.active {
+  background-color: gold;
+  color: black;
+}
