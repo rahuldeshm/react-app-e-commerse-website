@@ -36,14 +36,16 @@ function Header(props) {
         >
           Home
         </NavLink>
-        <NavLink
-          activeClassName={classes.active}
-          to="/store"
-          onClick={storeHandler}
-          className="m-3"
-        >
-          Store
-        </NavLink>
+        {ctx.authorise && (
+          <NavLink
+            activeClassName={classes.active}
+            to="/store"
+            onClick={storeHandler}
+            className="m-3"
+          >
+            Store
+          </NavLink>
+        )}
         <NavLink
           activeClassName={classes.active}
           onClick={cartHandler}
@@ -60,14 +62,16 @@ function Header(props) {
         >
           Contact
         </NavLink>
-        <NavLink
-          activeClassName={classes.active}
-          onClick={cartHandler}
-          to="/login"
-          className="m-3"
-        >
-          Login
-        </NavLink>
+        {!ctx.authorise && (
+          <NavLink
+            activeClassName={classes.active}
+            onClick={cartHandler}
+            to="/login"
+            className="m-3"
+          >
+            Login
+          </NavLink>
+        )}
       </Nav>
       {store && (
         <Button variant="primary" className="m-3" onClick={openCartHandler}>
