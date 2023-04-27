@@ -5,17 +5,17 @@ import { NavLink } from "react-router-dom";
 import classes from "./Header.module.css";
 
 function Header(props) {
-  const [store, setStore] = useState(false);
   const ctx = useContext(DataContext);
   function openCartHandler() {
     ctx.cartHandler(true);
   }
-  function storeHandler() {
-    setStore(true);
+  function logoutHandler() {
+    if (ctx.authorise) {
+      ctx.authenticationHandler(null);
+      localStorage.removeItem("login");
+    }
   }
-  function cartHandler() {
-    setStore(false);
-  }
+
   return (
     <Navbar
       bg="dark"
@@ -28,52 +28,32 @@ function Header(props) {
         <Navbar.Brand>e-commerse website</Navbar.Brand>
       </Container>
       <Nav>
-        <NavLink
-          onClick={cartHandler}
-          to="/home"
-          activeClassName={classes.active}
-          className="m-3"
-        >
+        <NavLink to="/home" activeClassName={classes.active} className="m-3">
           Home
         </NavLink>
         {ctx.authorise && (
-          <NavLink
-            activeClassName={classes.active}
-            to="/store"
-            onClick={storeHandler}
-            className="m-3"
-          >
+          <NavLink activeClassName={classes.active} to="/store" className="m-3">
             Store
           </NavLink>
         )}
-        <NavLink
-          activeClassName={classes.active}
-          onClick={cartHandler}
-          to="/about"
-          className="m-3"
-        >
+        <NavLink activeClassName={classes.active} to="/about" className="m-3">
           About
         </NavLink>
-        <NavLink
-          activeClassName={classes.active}
-          onClick={cartHandler}
-          to="/contact"
-          className="m-3"
-        >
+        <NavLink activeClassName={classes.active} to="/contact" className="m-3">
           Contact
         </NavLink>
-        {!ctx.authorise && (
-          <NavLink
-            activeClassName={classes.active}
-            onClick={cartHandler}
-            to="/login"
-            className="m-3"
-          >
-            Login
-          </NavLink>
-        )}
+
+        <NavLink
+          onClick={logoutHandler}
+          activeClassName={classes.active}
+          to="/login"
+          className="m-3"
+        >
+          {ctx.authorise ? "Logout" : "login"}
+        </NavLink>
       </Nav>
-      {store && (
+
+      {ctx.authorise && (
         <Button variant="primary" className="m-3" onClick={openCartHandler}>
           Cart<h2>{ctx.cartItems.length}</h2>
         </Button>

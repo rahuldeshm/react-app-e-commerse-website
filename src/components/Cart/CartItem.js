@@ -1,7 +1,12 @@
-import React from "react";
+import React, { useContext } from "react";
 import { FormControl, Image, Button, Col, Row } from "react-bootstrap";
+import DataContext from "../../store/data-context";
 
 function CartItem(props) {
+  const ctx = useContext(DataContext);
+  function removeHandler() {
+    ctx.removeFromCart(props.e.title);
+  }
   return (
     <tr>
       <td style={{ display: "flex" }} className="m-0 p-0">
@@ -29,6 +34,7 @@ function CartItem(props) {
           </Col>
           <Col className="p-0">
             <Button
+              onClick={removeHandler}
               variant="warning"
               size="sm"
               className="p-0"

@@ -35,8 +35,8 @@ function Login(props) {
     ).then((res) => {
       if (res.ok) {
         res.json().then((data) => {
-          ctx.authenticationHandler(data.idToken);
-          localStorage.setItem("login", data.idToken);
+          ctx.authenticationHandler(data);
+          localStorage.setItem("login", JSON.stringify(data));
           history.replace("/store");
         });
       } else {

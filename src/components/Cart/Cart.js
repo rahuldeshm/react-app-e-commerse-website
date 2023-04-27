@@ -5,6 +5,7 @@ import DataContext from "../../store/data-context";
 
 function Cart(props) {
   const ctx = useContext(DataContext);
+  let price = 0;
 
   function closeHandler() {
     ctx.cartHandler(false);
@@ -34,6 +35,7 @@ function Cart(props) {
               </thead>
               <tbody>
                 {ctx.cartItems.map((e) => {
+                  price = e.price + price;
                   return <CartItem key={`${e.title}_cart`} e={e}></CartItem>;
                 })}
               </tbody>
@@ -43,7 +45,7 @@ function Cart(props) {
                 <h3>Total- </h3>
               </Col>
               <Col style={{ textAlign: "center" }}>
-                <h3>$300</h3>
+                <h3>{`$${price}`}</h3>
               </Col>
             </Row>
           </Container>
