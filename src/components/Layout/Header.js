@@ -60,6 +60,14 @@ function Header(props) {
         >
           Contact
         </NavLink>
+        <NavLink
+          activeClassName={classes.active}
+          onClick={cartHandler}
+          to="/login"
+          className="m-3"
+        >
+          Login
+        </NavLink>
       </Nav>
       {store && (
         <Button variant="primary" className="m-3" onClick={openCartHandler}>

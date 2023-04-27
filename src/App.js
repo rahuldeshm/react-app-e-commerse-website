@@ -7,6 +7,7 @@ import Individual from "./components/Store/Individual";
 import { ContextProvider } from "./store/data-context";
 import Header from "./components/Layout/Header";
 import { Redirect } from "react-router-dom/cjs/react-router-dom.min";
+import Login from "./components/Login/Login";
 
 // const router = createBrowserRouter([
 //   {
@@ -57,6 +58,9 @@ function App() {
         </Route>
         <Route path="/contact">
           <ContactUs />
+        </Route>
+        <Route path="/login">
+          <Login />
         </Route>
         <Route path="/store/:id">
           <Individual />
