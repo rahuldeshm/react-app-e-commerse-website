@@ -16,7 +16,7 @@ function Item(props) {
   return (
     <Col sm={6}>
       <h3>{titl}</h3>
-      <NavLink to={`/store/${titl}`}>
+      <NavLink to={`/store/${titl}`} e={props.e}>
         <img src={props.e.imageUrl} alt="Product" />
       </NavLink>
       <Row className="m-3">

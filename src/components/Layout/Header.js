@@ -22,7 +22,7 @@ function Header(props) {
       expand="sm"
       variant="dark"
       className={classes.navbar}
-      style={{ width: "100%", height: "4rem", position: "fixed" }}
+      style={{ width: "100%", height: "4rem", position: "fixed", zIndex: "10" }}
     >
       <Container>
         <Navbar.Brand>e-commerse website</Navbar.Brand>

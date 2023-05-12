@@ -1,5 +1,28 @@
 import React, { useEffect, useState } from "react";
 const localAuth = JSON.parse(localStorage.getItem("login"));
+const list = [
+  {
+    title: "Colors",
+    price: 100,
+    imageUrl: "https://prasadyash2411.github.io/ecom-website/img/Album%201.png",
+  },
+  {
+    title: "Black and white Colors",
+    price: 50,
+    imageUrl: "https://prasadyash2411.github.io/ecom-website/img/Album%202.png",
+  },
+  {
+    title: "Yellow and Black Colors",
+    price: 70,
+    imageUrl: "https://prasadyash2411.github.io/ecom-website/img/Album%203.png",
+  },
+  {
+    title: "Blue Color",
+    price: 100,
+    imageUrl: "https://prasadyash2411.github.io/ecom-website/img/Album%204.png",
+  },
+];
+
 export function ContextProvider(props) {
   const [authentication, setAuthentication] = useState(localAuth);
   const [cartPresent, setCartPresent] = useState([]);
@@ -14,7 +37,7 @@ export function ContextProvider(props) {
       let ls = lsls.replace("@", "");
       let laststring = ls.replace(".", "");
       fetch(
-        `https://crudcrud.com/api/73823ed02847466cb47b2578c3326efe/${laststring}`,
+        `https://crudcrud.com/api/35942738b84b4f04b90a8680915219ee/${laststring}`,
         {
           method: "GET",
           headers: {
@@ -38,7 +61,7 @@ export function ContextProvider(props) {
       setCartPresent([...cartPresent, item.title]);
       setCartItems([...cartItems, item]);
       fetch(
-        `https://crudcrud.com/api/73823ed02847466cb47b2578c3326efe/${laststring}`,
+        `https://crudcrud.com/api/35942738b84b4f04b90a8680915219ee/${laststring}`,
         {
           method: "POST",
           body: JSON.stringify(item),
@@ -69,6 +92,7 @@ export function ContextProvider(props) {
   return (
     <DataContext.Provider
       value={{
+        list: list,
         cartHandler: cartHandler,
         showCart: showCart,
         cartItemAddHandler: cartItemAddHandler,
@@ -93,6 +117,7 @@ const DataContext = React.createContext({
   authentication: "",
   authenticationHandler: (data) => {},
   authorise: false,
+  list: [],
 });
 
 export default DataContext;

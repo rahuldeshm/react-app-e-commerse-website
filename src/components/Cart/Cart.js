@@ -21,6 +21,7 @@ function Cart(props) {
         <Modal.Header closeButton>
           <Col style={{ textAlign: "center" }}>
             <Modal.Title>Cart</Modal.Title>
+            <p>{ctx.authentication.email}</p>
           </Col>
         </Modal.Header>
         <Modal.Body>
