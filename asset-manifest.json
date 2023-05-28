@@ -1,0 +1,21 @@
+{
+  "files": {
+    "main.css": "/react-app-e-commerse-website/static/css/main.b4298543.css",
+    "main.js": "/react-app-e-commerse-website/static/js/main.19fa1fb0.js",
+    "static/js/787.93b9edf4.chunk.js": "/react-app-e-commerse-website/static/js/787.93b9edf4.chunk.js",
+    "static/media/Band Members.png": "/react-app-e-commerse-website/static/media/Band Members.c0d5ce252195bdccffa5.png",
+    "static/media/color2.jpg": "/react-app-e-commerse-website/static/media/color2.2b0ebbc9d727ed345490.jpg",
+    "static/media/color4.jpg": "/react-app-e-commerse-website/static/media/color4.4e3e53791ecad9f32387.jpg",
+    "static/media/color3.jpg": "/react-app-e-commerse-website/static/media/color3.9c60cdac976059b10f5c.jpg",
+    "static/media/color1.jpg": "/react-app-e-commerse-website/static/media/color1.93b779ac5b3eb9749bea.jpg",
+    "static/media/insta.webp": "/react-app-e-commerse-website/static/media/insta.2ada1e22e57f354d8879.webp",
+    "index.html": "/react-app-e-commerse-website/index.html",
+    "main.b4298543.css.map": "/react-app-e-commerse-website/static/css/main.b4298543.css.map",
+    "main.19fa1fb0.js.map": "/react-app-e-commerse-website/static/js/main.19fa1fb0.js.map",
+    "787.93b9edf4.chunk.js.map": "/react-app-e-commerse-website/static/js/787.93b9edf4.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.b4298543.css",
+    "static/js/main.19fa1fb0.js"
+  ]
+}
